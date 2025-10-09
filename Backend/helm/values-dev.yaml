@@ -1,0 +1,11 @@
+ConfigMap:
+  db_hosts: //rdsarn 
+ 
+deployment: 
+  imageURL: 688567303455.dkr.ecr.us-east-1.amazonaws.com/expense/dev/backend    
+  imageVersion: IMAGE_VERSION
+hpa:
+ minreplicas: 1
+ maxreplicas: 10
+ cpuUtilization: 20
+  
