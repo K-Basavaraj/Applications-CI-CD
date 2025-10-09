@@ -28,8 +28,8 @@ pipeline {
           def packageJson = readJSON file: 'package.json'
           // appversion = packageJson.version
           // echo "App version: ${appversion}"
-          env.appversion = packageJson.version
-          echo "App version: ${env.appversion}"
+          env.appVersion = packageJson.version
+          echo "App version: ${env.appVersion}"
         }
       }
     }
