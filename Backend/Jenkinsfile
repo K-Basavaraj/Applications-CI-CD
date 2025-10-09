@@ -15,13 +15,15 @@ pipeline {
     environment = 'dev'
     component = 'backend'
   }
-  stages {
+
+  stages{
     stage('debug') {
       steps {
         echo 'debugging..'
         sh 'env'
       }
     }
+
     stage('Read The Version') {
       steps {
         script {
@@ -33,11 +35,13 @@ pipeline {
         }
       }
     }
+
     stage('install dependencies'){
       steps {
         dir('Backend') {
           sh 'npm install'
         }
+      }
     }
     // stage('Docker build'){
     //   steps {
