@@ -1,5 +1,5 @@
 ConfigMap:
-  db_hosts: expense-dev.cwbaca8aea37.us-east-1.rds.amazonaws.com 
+  db_hosts: expense-dev.cwbaca8aea37.us-east-1.rds.amazonaws.com
  
 deployment: 
   imageURL: 688567303455.dkr.ecr.us-east-1.amazonaws.com/expense/dev/backend   
