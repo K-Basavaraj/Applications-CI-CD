@@ -73,7 +73,7 @@ pipeline {
         SCANNER_HOME = tool 'sonar-7.0' //scanner-configuration
       }
       steps {
-        //sonar server injevtion
+        //sonar server injection
         withSonarQubeEnv('sonar-7.0') {
           sh '$SCANNER_HOME/bin/sonar-scanner'
         }
