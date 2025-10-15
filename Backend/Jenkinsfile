@@ -68,6 +68,17 @@ pipeline {
         }
       }
     }
+    stage('SonarQube analysis'){
+      environment {
+        SCANNER_HOME = tool 'sonar-7.0' //scanner-configuration
+      }
+      steps {
+        //sonar server injevtion
+        withSonarQubeEnv('sonar-7.0') {
+          sh '$SCANNER_HOME/bin/sonar-scanner'
+        }
+      }
+    }
     stage('Deploy'){
       steps {
         withAWS(region: 'us-east-1', credentials: 'aws-creds'){
