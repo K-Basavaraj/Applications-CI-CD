@@ -34,16 +34,13 @@ This ensures that all networking components — **ALB**, **listeners**, and **Ta
 In the frontend Helm chart, we use a **TargetGroupBinding** (`apiVersion: elbv2.k8s.aws/v1beta1`) to connect the frontend service with the **Target Group** created by Terraform.
 
 ---
-
 ### Request Flow
-
 **CDN → ALB → Ingress (Listeners & Target Group) → Kubernetes (Frontend & Backend Pods) → RDS**
-
 ```
 ### Verify Pod Status
-
 ```
 kubectl config set-context --current --namespace=expense
+```
 kubectl get pods -o wide
 NAME                        READY   STATUS    RESTARTS   AGE    IP           NODE
 backend-76dfd857db-6znxq    1/1     Running   0          23m    10.0.11.82   ip-10-0-11-18.ec2.internal
