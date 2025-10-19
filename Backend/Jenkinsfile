@@ -77,6 +77,16 @@ pipeline {
         dir('Backend') {
           withSonarQubeEnv('sonar-7.0') {
             sh '$SCANNER_HOME/bin/sonar-scanner'
+            //genaric scanner, it autmatically understand the language and provide scan results.
+          }
+        }
+      }
+    }
+    stage('SQuality Gate') {
+      steps {
+        dir('Backend') {
+          timeout(time: 5, unit: 'MINUTES') {
+            waitForQualityGate abortPipeline: true
           }
         }
       }
