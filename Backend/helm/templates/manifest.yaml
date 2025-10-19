@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: backend-config
-  namespace: expense
+  namespace: expense-dev
 
 data:
  DB_HOST: {{ .Values.ConfigMap.db_hosts }}
@@ -11,7 +11,7 @@ apiVersion: apps/v1
 kind: Deployment       
 metadata:
   name: backend
-  namespace: expense            
+  namespace: expense-dev            
   labels:                
     app: backend
     tier: api
@@ -50,7 +50,7 @@ apiVersion: v1
 
 metadata: 
   name: backend
-  namespace: expense
+  namespace: expense-dev
  
 spec: 
   selector:
@@ -67,7 +67,7 @@ apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
  name: backend
- namespace: expense
+ namespace: expense-dev
 spec:
  scaleTargetRef:
    apiVersion: apps/v1
